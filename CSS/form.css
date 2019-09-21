@@ -1,0 +1,41 @@
+body{
+    width: 500px;
+    margin-top:100px;
+    margin-left:200px;
+    /* margin:100px 0 0 100px; */
+    background-image: url('image/luenersee-4356926__340.jpg');
+    background-size: cover;
+}
+form{
+    border: 1px solid blueviolet;
+    text-align: center;
+    border-radius: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-shadow: 0 0 15px blueviolet;
+}
+input[type="text"],input[type="password"]{
+    height:25px;
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 25px;
+    margin: 7px;
+    text-align: center;
+}
+input[type="text"]:focus, input[type="password"]:focus{
+    outline: none;
+    background-color: aquamarine;
+}
+button{
+    border:none;
+    background-color: lightblue;
+    padding:1px;
+    width:100px;
+    height:50px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+}
+button:hover{
+    background-color: yellow;
+    cursor: pointer;
+    outline: none;
+}
