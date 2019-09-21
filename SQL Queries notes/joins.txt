@@ -1,0 +1,4 @@
+WAQTD all records using cross join.;
+
+mysql> select * from employee_info cross join department_info;
+//we get 16X6 records in the result set;

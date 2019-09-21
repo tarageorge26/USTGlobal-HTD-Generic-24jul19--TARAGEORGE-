@@ -1,0 +1,210 @@
+GROUPBY CLAUSE;
+
+WAQTD highest salary of an employee in each dept;
+
+mysql> select deptid,max(salary) from employee_info
+    -> group by deptid;
++--------+-------------+
+| deptid | max(salary) |
++--------+-------------+
+|   NULL |       40000 |
+|     10 |       38000 |
+|     20 |       55000 |
+|     30 |       50000 |
+|     40 |       45000 |
++--------+-------------+
+5 rows in set (0.00 sec)
+*********************************************************************************************************************************************************
+WAQTD no of s/w developer working in each dept;
+
+mysql> select deptid,count(*) as no_of_software_dev from employee_info
+    -> where designation = 'software-developer'
+    -> group by deptid;
++--------+--------------------+
+| deptid | no_of_software_dev |
++--------+--------------------+
+|     20 |                  2 |
++--------+--------------------+
+1 row in set (0.00 sec)
+*********************************************************************************************************************************************************
+WAQTD no of employees hired on each date;
+
+mysql> select doj ,count(*) as count from employee_info
+    -> group by doj;
++------------+-------+
+| doj        | count |
++------------+-------+
+| 1999-05-24 |     1 |
+| 2001-08-18 |     1 |
+| 2002-03-18 |     1 |
+| 2010-03-01 |     1 |
+| 2012-10-07 |     1 |
+| 2018-04-18 |     1 |
+| 2018-04-25 |     1 |
+| 2018-06-15 |     1 |
+| 2018-08-04 |     1 |
+| 2018-11-04 |     1 |
+| 2019-02-15 |     1 |
+| 2019-03-25 |     1 |
+| 2019-06-07 |     1 |
+| 2019-06-24 |     1 |
+| 2019-08-14 |     1 |
+| 2019-12-07 |     1 |
++------------+-------+
+16 rows in set (0.00 sec)
+*********************************************************************************************************************************************************
+WAQTD min salary in each desigantion;
+
++--------------------+-------------+
+| designation        | min(salary) |
++--------------------+-------------+
+| NULL               |       40000 |
+| analyst            |       40000 |
+| clerk              |       19000 |
+| HR                 |       30000 |
+| salesman           |       25000 |
+| software-developer |       50000 |
+| tester             |       28000 |
++--------------------+-------------+
+7 rows in set (0.00 sec)
+
+*********************************************************************************************************************************************************
+
+HAVING CLAUSE : TO PERFORM SOME FILTERATION ONCE THE GROPUBY IS DONE WE USE HAVING CLAUSE;
+
+WAQTD dept no which has atleast 4 working employees;
+
+mysql> select deptid,count(*) as no_of_employees_working from employee_info
+    -> group by deptid
+    -> having count(*)>=4;
++--------+-------------------------+
+| deptid | no_of_employees_working |
++--------+-------------------------+
+|     10 |                       5 |
+|     20 |                       5 |
++--------+-------------------------+
+2 rows in set (0.03 sec)
+*********************************************************************************************************************************************************
+
+WAQTD dept no which has total salary greater than 20000;
+
+ mysql> select deptid from employee_info group by deptid
+    -> having sum(salary) >20000;
++--------+
+| deptid |
++--------+
+|   NULL |
+|     10 |
+|     20 |
+|     30 |
+|     40 |
++--------+
+5 rows in set (0.00 sec)
+
+dept having total salary greater than 1L;
+
+mysql> select deptid from employee_info group by deptid
+    -> having sum(salary) >100000;
++--------+
+| deptid |
++--------+
+|     10 |
+|     20 |
++--------+
+2 rows in set (0.00 sec)
+*********************************************************************************************************************************************************
+
+WAQTD dept and avg salary of all dept whose avg salary is greater than 20000 excluding the employee whose name begins with 's';
+
+mysql> select deptid,avg(salary) as average_salary from employee_info
+    -> where name not like 's%'
+    -> group by deptid
+    -> having avg(salary)>20000;
++--------+----------------+
+| deptid | average_salary |
++--------+----------------+
+|   NULL |          40000 |
+|     10 |          28000 |
+|     20 |          39500 |
+|     30 |          33000 |
+|     40 |          36500 |
++--------+----------------+
+5 rows in set (0.00 sec)
+
+*********************************************************************************************************************************************************
+
+ORDER BY: ORDERING THE RESULT SET IN SOME PAARTICULAR (ASCENDING OR DESCENDING) ORDER;
+
+WAQTD all the results of employee table arranging salary in descending order;
+
+
+mysql> select * from employee_info
+    -> order by salary desc;
++-----+---------+-------------------+--------------------+------------+------------+------------+--------+--------+------------+------+
+| id  | name    | emailid           | designation        | Mobile     | DOB        | DOJ        | salary | deptid | bloodgroup | age  |
++-----+---------+-------------------+--------------------+------------+------------+------------+--------+--------+------------+------+
+| 109 | sandra  | sandra@gamil.com  | software-developer | 8532478443 | 1985-06-02 | 2001-08-18 |  55000 |     20 | B+         |   34 |
+| 104 | danny   | danny@gamil.com   | software-developer | 8543678443 | 1980-02-01 | 2002-03-18 |  50000 |     20 | O+         |   39 |
+| 107 | anusha  | anusha@gmail.com  | HR                 | 7654283828 | 1995-07-22 | 2018-04-25 |  50000 |     30 | A+         |   24 |
+| 112 | akhil   | akhil@gmail.com   | HR                 | 9812376897 | 1991-10-24 | 2018-06-15 |  45000 |     40 | AB+        |   28 |
+| 115 | nandini | nandini@gmail.com | NULL               | NULL       | 1997-12-27 | 2019-02-15 |  40000 |   NULL | NULL       | NULL |
+| 108 | anne    | anne@gmail.com    | analyst            | 8971984554 | 1998-11-10 | 2019-06-24 |  40000 |     20 | O-         |   21 |
+| 103 | chandan | chandan@gmail.com | analyst            | 8971234554 | 1979-09-10 | 1999-05-24 |  40000 |     20 | A-         |   40 |
+| 114 | pushpa  | pushpa@gamil.com  | tester             | 7896747534 | 1991-08-02 | 2019-08-14 |  38000 |     10 | B+         |   28 |
+| 113 | sachin  | sachin@gmail.com  | clerk              | 7864097976 | 1991-10-02 | 2018-04-18 |  35000 |     10 | O+         |   28 |
+| 100 | arun    | arun@gmail.com    | HR                 | 9987540943 | 1989-05-11 | 2010-03-01 |  30000 |     10 | A+         |   30 |
+| 111 | zakir   | zakir@gmail.com   | salesman           | 9854683828 | 1985-07-18 | 2012-10-07 |  29000 |     30 | B+         |   34 |
+| 110 | martin  | martin@gamil.com  | tester             | 9866747534 | 1993-11-01 | 2018-08-04 |  28000 |     20 | A+         |   26 |
+| 105 | frank   | frank@gamil.com   | tester             | 7978647534 | 1992-12-01 | 2018-11-04 |  28000 |     40 | AB+        |   27 |
+| 102 | bhuvan  | bhuvan@gmail.com  | salesman           | 9532764897 | 1995-07-17 | 2019-03-25 |  25000 |     10 | B+         |   24 |
+| 101 | ajay    | ajay@gmail.com    | clerk              | 8972365448 | 1997-09-08 | 2019-06-07 |  20000 |     30 | AB+        |   22 |
+| 106 | gagan   | gagan@gmail.com   | clerk              | 8973443448 | 1989-10-08 | 2019-12-07 |  19000 |     10 | B+         |   30 |
++-----+---------+-------------------+--------------------+------------+------------+------------+--------+--------+------------+------+
+16 rows in set (0.00 sec)
+*********************************************************************************************************************************************************
+WAQTD employee name,designation,doj for all employees who are working in either one of the dept 10,20,50,60 sort the records in descending order of their salary;
+
+mysql> select name,designation,doj,salary from employee_info
+    -> where deptid in(10,20,50,60)
+    -> order by salary desc;
++---------+--------------------+------------+--------+
+| name    | designation        | doj        | salary |
++---------+--------------------+------------+--------+
+| sandra  | software-developer | 2001-08-18 |  55000 |
+| danny   | software-developer | 2002-03-18 |  50000 |
+| anne    | analyst            | 2019-06-24 |  40000 |
+| chandan | analyst            | 1999-05-24 |  40000 |
+| pushpa  | tester             | 2019-08-14 |  38000 |
+| sachin  | clerk              | 2018-04-18 |  35000 |
+| arun    | HR                 | 2010-03-01 |  30000 |
+| martin  | tester             | 2018-08-04 |  28000 |
+| bhuvan  | salesman           | 2019-03-25 |  25000 |
+| gagan   | clerk              | 2019-12-07 |  19000 |
++---------+--------------------+------------+--------+
+10 rows in set (0.11 sec)
+*********************************************************************************************************************************************************
+
+WAQTD deptid along with no of employees in it;
+
+mysql> select deptid,count(*) as no_of_employess from employee_info
+    -> group by deptid;
++--------+-----------------+
+| deptid | no_of_employess |
++--------+-----------------+
+|   NULL |               1 |
+|     10 |               5 |
+|     20 |               5 |
+|     30 |               3 |
+|     40 |               2 |
++--------+-----------------+
+5 rows in set (0.02 sec)
+*********************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+

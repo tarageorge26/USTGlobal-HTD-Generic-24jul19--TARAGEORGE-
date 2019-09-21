@@ -1,0 +1,116 @@
+
+mysql> select * from employee_info;
++-----+---------+-------------------+--------------------+------------+------------+------------+--------+--------+------------+------+
+| id  | name    | emailid           | designation        | Mobile     | DOB        | DOJ        | salary | deptid | bloodgroup | age  |
++-----+---------+-------------------+--------------------+------------+------------+------------+--------+--------+------------+------+
+| 100 | arun    | arun@gmail.com    | HR                 | 9987540943 | 1989-05-11 | 2010-03-01 |  30000 |     10 | A+         |   30 |
+| 101 | ajay    | ajay@gmail.com    | clerk              | 8972365448 | 1997-09-08 | 2019-06-07 |  20000 |     30 | AB+        |   22 |
+| 102 | bhuvan  | bhuvan@gmail.com  | salesman           | 9532764897 | 1995-07-17 | 2019-03-25 |  25000 |     10 | B+         |   24 |
+| 103 | chandan | chandan@gmail.com | analyst            | 8971234554 | 1979-09-10 | 1999-05-24 |  40000 |     20 | A-         |   40 |
+| 104 | danny   | danny@gamil.com   | software-developer | 8543678443 | 1980-02-01 | 2002-03-18 |  50000 |     20 | O+         |   39 |
+| 105 | frank   | frank@gamil.com   | tester             | 7978647534 | 1992-12-01 | 2018-11-04 |  28000 |     40 | AB+        |   27 |
+| 106 | gagan   | gagan@gmail.com   | clerk              | 8973443448 | 1989-10-08 | 2019-12-07 |  19000 |     10 | B+         |   30 |
+| 107 | anusha  | anusha@gmail.com  | HR                 | 7654283828 | 1995-07-22 | 2018-04-25 |  50000 |     30 | A+         |   24 |
+| 108 | anne    | anne@gmail.com    | analyst            | 8971984554 | 1998-11-10 | 2019-06-24 |  40000 |     20 | O-         |   21 |
+| 109 | sandra  | sandra@gamil.com  | software-developer | 8532478443 | 1985-06-02 | 2001-08-18 |  55000 |     20 | B+         |   34 |
+| 110 | martin  | martin@gamil.com  | tester             | 9866747534 | 1993-11-01 | 2018-08-04 |  28000 |     20 | A+         |   26 |
+| 111 | zakir   | zakir@gmail.com   | salesman           | 9854683828 | 1985-07-18 | 2012-10-07 |  29000 |     30 | B+         |   34 |
+| 112 | akhil   | akhil@gmail.com   | HR                 | 9812376897 | 1991-10-24 | 2018-06-15 |  45000 |     40 | AB+        |   28 |
+| 113 | sachin  | sachin@gmail.com  | clerk              | 7864097976 | 1991-10-02 | 2018-04-18 |  35000 |     10 | O+         |   28 |
+| 114 | pushpa  | pushpa@gamil.com  | tester             | 7896747534 | 1991-08-02 | 2019-08-14 |  38000 |     10 | B+         |   28 |
+| 115 | nandini | nandini@gmail.com | NULL               | NULL       | 1997-12-27 | 2019-02-15 |  40000 |   NULL | NULL       | NULL |
++-----+---------+-------------------+--------------------+------------+------------+------------+--------+--------+------------+------+
+16 rows in set (0.00 sec)
+
+
+mysql> select * from department_info;
++--------+--------------+-----------+
+| deptid | dname        | location  |
++--------+--------------+-----------+
+|     10 | accounting   | banglore  |
+|     20 | research     | pune      |
+|     30 | sales        | new delhi |
+|     40 | operation    | chennai   |
+|     50 | admin        | mumbai    |
+|     60 | maintainance | goa       |
++--------+--------------+-----------+
+6 rows in set (0.00 sec)
+
+*********************************************************************************************************************************************************************
+
+WAQTD details of employees who are working for research dept;
+
+mysql> select * from employee_info
+    -> where deptid=(select deptid from department_info where dname='research');
++-----+---------+-------------------+--------------------+------------+------------+------------+--------+--------+------------+------+
+| id  | name    | emailid           | designation        | Mobile     | DOB        | DOJ        | salary | deptid | bloodgroup | age  |
++-----+---------+-------------------+--------------------+------------+------------+------------+--------+--------+------------+------+
+| 103 | chandan | chandan@gmail.com | analyst            | 8971234554 | 1979-09-10 | 1999-05-24 |  40000 |     20 | A-         |   40 |
+| 104 | danny   | danny@gamil.com   | software-developer | 8543678443 | 1980-02-01 | 2002-03-18 |  50000 |     20 | O+         |   39 |
+| 108 | anne    | anne@gmail.com    | analyst            | 8971984554 | 1998-11-10 | 2019-06-24 |  40000 |     20 | O-         |   21 |
+| 109 | sandra  | sandra@gamil.com  | software-developer | 8532478443 | 1985-06-02 | 2001-08-18 |  55000 |     20 | B+         |   34 |
+| 110 | martin  | martin@gamil.com  | tester             | 9866747534 | 1993-11-01 | 2018-08-04 |  28000 |     20 | A+         |   26 |
++-----+---------+-------------------+--------------------+------------+------------+------------+--------+--------+------------+------+
+5 rows in set (0.03 sec)
+
+*********************************************************************************************************************************************************************
+
+WAQTD names of employees who are working for research dept;
+
+mysql> select name from employee_info
+    -> where deptid=(select deptid from department_info where dname='research');
++---------+
+| name    |
++---------+
+| chandan |
+| danny   |
+| anne    |
+| sandra  |
+| martin  |
++---------+
+5 rows in set (0.00 sec)
+*********************************************************************************************************************************************************************
+WAQTD name of employee who is working in locationwhich has atleast 1 'a' character in its name;
+
+mysql> SELECT name from employee_info where deptid in (SELECT deptid from department_info
+    -> where location like '%a%');
++--------+
+| name   |
++--------+
+| arun   |
+| bhuvan |
+| frank  |
+| gagan  |
+| akhil  |
+| sachin |
+| pushpa |
++--------+
+7 rows in set (0.00 sec)
+*********************************************************************************************************************************************************************
+WAQ to obtain second maximum salary from employee info table;
+
+mysql> SELECT max(salary) as second_max_salary from employee_info where salary < (SELECT max(salary) from employee_info);
++-------------------+
+| second_max_salary |
++-------------------+
+|             50000 |
++-------------------+
+1 row in set (0.00 sec)
+
+*********************************************************************************************************************************************************************
+
+WAQTD the 3rd maximum salary;
+
+mysql> SELECT max(salary) as third_max_salary from employee_info where salary < (SELECT max(salary) from employee_info where salary<(SELECT max(salary) from employee_info));
++------------------+
+| third_max_salary |
++------------------+
+|            45000 |
++------------------+
+1 row in set (0.00 sec)
+*********************************************************************************************************************************************************************
+
+
+ 
+
+

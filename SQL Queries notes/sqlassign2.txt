@@ -1,0 +1,136 @@
+WAQTD all details of s/w developers in dept no 30;
+
+mysql> select * from employee_info
+    -> where designation='software-developer' and deptid=30;
+Empty set (0.00 sec)
+
+****************************************************************************************************************************************************************
+WAQTD t display details of all s/w developers in dept no 40 and having salary greater than 5000;
+
+mysql> select * from employee_info
+    -> where designation='software-developer' and deptid=40 and salary>5000;
+Empty set (0.01 sec)
+
+****************************************************************************************************************************************************************
+WAQTD list of employees except those wh are working in dept 10 and 20;
+
+mysql> select * from employee_info
+    -> where deptid not in(10,20);
++-----+--------+------------------+-------------+------------+------------+------------+--------+--------+------------+------+
+| id  | name   | emailid          | designation | Mobile     | DOB        | DOJ        | salary | deptid | bloodgroup | age  |
++-----+--------+------------------+-------------+------------+------------+------------+--------+--------+------------+------+
+| 101 | ajay   | ajay@gmail.com   | clerk       | 8972365448 | 1997-09-08 | 2019-06-07 |  20000 |     30 | AB+        |   22 |
+| 105 | frank  | frank@gamil.com  | tester      | 7978647534 | 1992-12-01 | 2018-11-04 |  28000 |     40 | AB+        |   27 |
+| 107 | anusha | anusha@gmail.com | HR          | 7654283828 | 1995-07-22 | 2018-04-25 |  50000 |     30 | A+         |   24 |
+| 111 | zakir  | zakir@gmail.com  | salesman    | 9854683828 | 1985-07-18 | 2012-10-07 |  29000 |     30 | B+         |   34 |
+| 112 | akhil  | akhil@gmail.com  | HR          | 9812376897 | 1991-10-24 | 2018-06-15 |  45000 |     40 | AB+        |   28 |
++-----+--------+------------------+-------------+------------+------------+------------+--------+--------+------------+------+
+5 rows in set (0.00 sec)
+ except all
+****************************************************************************************************************************************************************
+WAQTD list the employees who are not working as s/w developer and clerks in dept 10 and 20 with a salary in the range of 1000 to 3000
+
+mysql> select * from employee_info
+    -> where designation not in ('software-developer','clerk') and  deptid in(10,20) and salary between 1000 and 3000;
+Empty set (0.00 sec)
+****************************************************************************************************************************************************************
+WAQTD list the employees whose salary is not in the range 10000 to 20000 in dept 10,20,30 except all salesman;
+
+mysql> select * from employee_info
+    -> where designation not in ('salesman') and  deptid in(10,20,30) and salary not between 10000 and 20000;
++-----+---------+-------------------+--------------------+------------+------------+------------+--------+--------+------------+------+
+| id  | name    | emailid           | designation        | Mobile     | DOB        | DOJ        | salary | deptid | bloodgroup | age  |
++-----+---------+-------------------+--------------------+------------+------------+------------+--------+--------+------------+------+
+| 100 | arun    | arun@gmail.com    | HR                 | 9987540943 | 1989-05-11 | 2010-03-01 |  30000 |     10 | A+         |   30 |
+| 103 | chandan | chandan@gmail.com | analyst            | 8971234554 | 1979-09-10 | 1999-05-24 |  40000 |     20 | A-         |   40 |
+| 104 | danny   | danny@gamil.com   | software-developer | 8543678443 | 1980-02-01 | 2002-03-18 |  50000 |     20 | O+         |   39 |
+| 107 | anusha  | anusha@gmail.com  | HR                 | 7654283828 | 1995-07-22 | 2018-04-25 |  50000 |     30 | A+         |   24 |
+| 108 | anne    | anne@gmail.com    | analyst            | 8971984554 | 1998-11-10 | 2019-06-24 |  40000 |     20 | O-         |   21 |
+| 109 | sandra  | sandra@gamil.com  | software-developer | 8532478443 | 1985-06-02 | 2001-08-18 |  55000 |     20 | B+         |   34 |
+| 110 | martin  | martin@gamil.com  | tester             | 9866747534 | 1993-11-01 | 2018-08-04 |  28000 |     20 | A+         |   26 |
+| 113 | sachin  | sachin@gmail.com  | clerk              | 7864097976 | 1991-10-02 | 2018-04-18 |  35000 |     10 | O+         |   28 |
+| 114 | pushpa  | pushpa@gamil.com  | tester             | 7896747534 | 1991-08-02 | 2019-08-14 |  38000 |     10 | B+         |   28 |
++-----+---------+-------------------+--------------------+------------+------------+------------+--------+--------+------------+------+
+9 rows in set (0.00 sec)
+
+****************************************************************************************************************************************************************
+WAQTD salary of employees in descending order;
+
+mysql> select * from employee_info
+    -> order by salary desc;
++-----+---------+-------------------+--------------------+------------+------------+------------+--------+--------+------------+------+
+| id  | name    | emailid           | designation        | Mobile     | DOB        | DOJ        | salary | deptid | bloodgroup | age  |
++-----+---------+-------------------+--------------------+------------+------------+------------+--------+--------+------------+------+
+| 109 | sandra  | sandra@gamil.com  | software-developer | 8532478443 | 1985-06-02 | 2001-08-18 |  55000 |     20 | B+         |   34 |
+| 104 | danny   | danny@gamil.com   | software-developer | 8543678443 | 1980-02-01 | 2002-03-18 |  50000 |     20 | O+         |   39 |
+| 107 | anusha  | anusha@gmail.com  | HR                 | 7654283828 | 1995-07-22 | 2018-04-25 |  50000 |     30 | A+         |   24 |
+| 112 | akhil   | akhil@gmail.com   | HR                 | 9812376897 | 1991-10-24 | 2018-06-15 |  45000 |     40 | AB+        |   28 |
+| 115 | nandini | nandini@gmail.com | NULL               | NULL       | 1997-12-27 | 2019-02-15 |  40000 |   NULL | NULL       | NULL |
+| 108 | anne    | anne@gmail.com    | analyst            | 8971984554 | 1998-11-10 | 2019-06-24 |  40000 |     20 | O-         |   21 |
+| 103 | chandan | chandan@gmail.com | analyst            | 8971234554 | 1979-09-10 | 1999-05-24 |  40000 |     20 | A-         |   40 |
+| 114 | pushpa  | pushpa@gamil.com  | tester             | 7896747534 | 1991-08-02 | 2019-08-14 |  38000 |     10 | B+         |   28 |
+| 113 | sachin  | sachin@gmail.com  | clerk              | 7864097976 | 1991-10-02 | 2018-04-18 |  35000 |     10 | O+         |   28 |
+| 100 | arun    | arun@gmail.com    | HR                 | 9987540943 | 1989-05-11 | 2010-03-01 |  30000 |     10 | A+         |   30 |
+| 111 | zakir   | zakir@gmail.com   | salesman           | 9854683828 | 1985-07-18 | 2012-10-07 |  29000 |     30 | B+         |   34 |
+| 110 | martin  | martin@gamil.com  | tester             | 9866747534 | 1993-11-01 | 2018-08-04 |  28000 |     20 | A+         |   26 |
+| 105 | frank   | frank@gamil.com   | tester             | 7978647534 | 1992-12-01 | 2018-11-04 |  28000 |     40 | AB+        |   27 |
+| 102 | bhuvan  | bhuvan@gmail.com  | salesman           | 9532764897 | 1995-07-17 | 2019-03-25 |  25000 |     10 | B+         |   24 |
+| 101 | ajay    | ajay@gmail.com    | clerk              | 8972365448 | 1997-09-08 | 2019-06-07 |  20000 |     30 | AB+        |   22 |
+| 106 | gagan   | gagan@gmail.com   | clerk              | 8973443448 | 1989-10-08 | 2019-12-07 |  19000 |     10 | B+         |   30 |
++-----+---------+-------------------+--------------------+------------+------------+------------+--------+--------+------------+------+
+16 rows in set (0.03 sec)
+
+****************************************************************************************************************************************************************
+WAQTD maximum,minimum and total salary from employee_info;
+
+mysql> select max(salary) as maximum_salary,min(salary) as minimum_salary,sum(salary) as total_salary from employee_info;
++----------------+----------------+--------------+
+| maximum_salary | minimum_salary | total_salary |
++----------------+----------------+--------------+
+|          55000 |          19000 |       572000 |
++----------------+----------------+--------------+
+1 row in set (0.00 sec)
+
+****************************************************************************************************************************************************************
+WAQTD list of no of s/w developers in dept no=20;
+
+mysql> select count(*) from employee_info
+    -> where designation='software-developer' and deptid=20;
++----------+
+| count(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.04 sec) 
+
+****************************************************************************************************************************************************************
+WAQTD highest and lowest salary earned by salesman;
+
+mysql> select max(salary) as max_salary,min(salary) as min_salary from employee_info
+    -> where designation='salesman';
++------------+------------+
+| max_salary | min_salary |
++------------+------------+
+|      29000 |      25000 |
++------------+------------+
+1 row in set (0.00 sec)
+
+****************************************************************************************************************************************************************
+WAQTD total salary of all departments;
+
+mysql> select deptid,sum(salary) as total_salary from employee_info
+    -> group by deptid;
++--------+--------------+
+| deptid | total_salary |
++--------+--------------+
+|   NULL |        40000 |
+|     10 |       147000 |
+|     20 |       213000 |
+|     30 |        99000 |
+|     40 |        73000 |
++--------+--------------+
+5 rows in set (0.00 sec)
+
+****************************************************************************************************************************************************************
+
+

@@ -1,0 +1,378 @@
+
+FUNCTIONS;
+
+WAQTD usage of aggregation functions;
+
+AVG();
+mysql> select avg(salary) as average_salary from employee_info;
++----------------+
+| average_salary |
++----------------+
+|          35750 |
++----------------+
+1 row in set (0.04 sec)
+
+COUNT();
+mysql> select count(*) as number_of_employees from employee_info;
++---------------------+
+| number_of_employees |
++---------------------+
+|                  16 |
++---------------------+
+1 row in set (0.02 sec)
+
+
+MAX();
+mysql> select max(salary) as max_salary from employee_info;
++------------+
+| max_salary |
++------------+
+|      55000 |
++------------+
+1 row in set (0.04 sec)
+
+MIN();
+mysql> select min(salary) as min_salary from employee_info;
++------------+
+| min_salary |
++------------+
+|      19000 |
++------------+
+1 row in set (0.00 sec)
+
+
+SUM();
+mysql> select sum(salary) as sum_of_salary from employee_info;
++---------------+
+| sum_of_salary |
++---------------+
+|        572000 |
++---------------+
+1 row in set (0.00 sec)
+
+
+mysql> select avg(salary) as average_salary,max(salary) as max_salary,min(salary) as min_salary,sum(salary) as sum_of_salary, count(*) as number_of_employees from employee_info;
++----------------+------------+------------+---------------+---------------------+
+| average_salary | max_salary | min_salary | sum_of_salary | number_of_employees |
++----------------+------------+------------+---------------+---------------------+
+|          35750 |      55000 |      19000 |        572000 |                  16 |
++----------------+------------+------------+---------------+---------------------+
+1 row in set (0.00 sec)
+********************************************************************************************************************************************************** 
+WAQTD employee who are hired after 2016;
+
+mysql> select count(*) from employee_info
+    -> where doj>'2016-12-31';
++----------+
+| count(*) |
++----------+
+|       11 |
++----------+
+1 row in set (0.08 sec)
+
+********************************************************************************************************************************************************** 
+WAQTD average and highest salary in dept no 20,30,40 and 60;
+
+mysql> select avg(salary) as avgsal,max(salary) as maxsal from employee_info
+    -> where deptid in(20,30,40,60);
++--------+--------+
+| avgsal | maxsal |
++--------+--------+
+|  38500 |  55000 |
++--------+--------+
+1 row in set (0.00 sec)
+********************************************************************************************************************************************************** 
+WAQTD employee details who are first and last hired;
+
++-------------+------------+
+| first_hired | last_hired |
++-------------+------------+
+| 1999-05-24  | 2019-12-07 |
++-------------+------------+
+1 row in set (0.03 sec)
+
+********************************************************************************************************************************************************** 
+
+SCALAR FUNCTIONS:
+
+1)CASE MANIPULATION SINGLE ROW FUNCTION;
+
+*)UPPER();
+
+mysql> select upper(name) from employee_info;
++-------------+
+| upper(name) |
++-------------+
+| ARUN        |
+| AJAY        |
+| BHUVAN      |
+| CHANDAN     |
+| DANNY       |
+| FRANK       |
+| GAGAN       |
+| ANUSHA      |
+| ANNE        |
+| SANDRA      |
+| MARTIN      |
+| ZAKIR       |
+| AKHIL       |
+| SACHIN      |
+| PUSHPA      |
+| NANDINI     |
++-------------+
+16 rows in set (0.03 sec)
+
+*)LOWER();
+
+mysql> select lower(name) from employee_info;
++-------------+
+| lower(name) |
++-------------+
+| arun        |
+| ajay        |
+| bhuvan      |
+| chandan     |
+| danny       |
+| frank       |
+| gagan       |
+| anusha      |
+| anne        |
+| sandra      |
+| martin      |
+| zakir       |
+| akhil       |
+| sachin      |
+| pushpa      |
+| nandini     |
++-------------+
+16 rows in set (0.01 sec)
+
+*) INITCAP();//NOT SUPPORTED IN MYSQL BUT SUPPORTED IN ORACLE;
+********************************************************************************************************************************************************** 
+2) CHARACTER MANIPULATION SINGLE ROW FUNCTION;
+
+*)LENGTH();
+
+mysql> select length(name) from employee_info;
++--------------+
+| length(name) |
++--------------+
+|            4 |
+|            4 |
+|            6 |
+|            7 |
+|            5 |
+|            5 |
+|            5 |
+|            6 |
+|            4 |
+|            6 |
+|            6 |
+|            5 |
+|            5 |
+|            6 |
+|            6 |
+|            7 |
++--------------+
+16 rows in set (0.08 sec)
+
+*)CONCAT(arg1,arg2);//used to concatinate 2 strings(columns);
+
+mysql> select concat(name,salary) from employee_info;
++---------------------+
+| concat(name,salary) |
++---------------------+
+| arun30000           |
+| ajay20000           |
+| bhuvan25000         |
+| chandan40000        |
+| danny50000          |
+| frank28000          |
+| gagan19000          |
+| anusha50000         |
+| anne40000           |
+| sandra55000         |
+| martin28000         |
+| zakir29000          |
+| akhil45000          |
+| sachin35000         |
+| pushpa38000         |
+| nandini40000        |
++---------------------+
+16 rows in set (0.00 sec)
+
+*)REVERSE();
+
+
+mysql> select reverse(name) from employee_info;
++---------------+
+| reverse(name) |
++---------------+
+| nura          |
+| yaja          |
+| navuhb        |
+| nadnahc       |
+| ynnad         |
+| knarf         |
+| nagag         |
+| ahsuna        |
+| enna          |
+| ardnas        |
+| nitram        |
+| rikaz         |
+| lihka         |
+| nihcas        |
+| aphsup        |
+| inidnan       |
++---------------+
+16 rows in set (0.00 sec)
+
+*) SUBSTR(string,position,length);
+
+mysql> select substr(name,1,3) from employee_info;
++------------------+
+| substr(name,1,3) |
++------------------+
+| aru              |
+| aja              |
+| bhu              |
+| cha              |
+| dan              |
+| fra              |
+| gag              |
+| anu              |
+| ann              |
+| san              |
+| mar              |
+| zak              |
+| akh              |
+| sac              |
+| pus              |
+| nan              |
++------------------+
+16 rows in set (0.00 sec)
+
+
+mysql> select name,substr(doj,1,4) as year_hired  from employee_info;
++---------+------------+
+| name    | year_hired |
++---------+------------+
+| arun    | 2010       |
+| ajay    | 2019       |
+| bhuvan  | 2019       |
+| chandan | 1999       |
+| danny   | 2002       |
+| frank   | 2018       |
+| gagan   | 2019       |
+| anusha  | 2018       |
+| anne    | 2019       |
+| sandra  | 2001       |
+| martin  | 2018       |
+| zakir   | 2012       |
+| akhil   | 2018       |
+| sachin  | 2018       |
+| pushpa  | 2019       |
+| nandini | 2019       |
++---------+------------+
+16 rows in set (0.00 sec)
+********************************************************************************************************************************************************** 
+WAQTD all details of employee whose name begins with consonant;
+
+mysql> select * from employee_info
+    -> where substr(name,1,1) not in('a','e','i','o','u');
++-----+---------+-------------------+--------------------+------------+------------+------------+--------+--------+------------+------+
+| id  | name    | emailid           | designation        | Mobile     | DOB        | DOJ        | salary | deptid | bloodgroup | age  |
++-----+---------+-------------------+--------------------+------------+------------+------------+--------+--------+------------+------+
+| 102 | bhuvan  | bhuvan@gmail.com  | salesman           | 9532764897 | 1995-07-17 | 2019-03-25 |  25000 |     10 | B+         |   24 |
+| 103 | chandan | chandan@gmail.com | analyst            | 8971234554 | 1979-09-10 | 1999-05-24 |  40000 |     20 | A-         |   40 |
+| 104 | danny   | danny@gamil.com   | software-developer | 8543678443 | 1980-02-01 | 2002-03-18 |  50000 |     20 | O+         |   39 |
+| 105 | frank   | frank@gamil.com   | tester             | 7978647534 | 1992-12-01 | 2018-11-04 |  28000 |     40 | AB+        |   27 |
+| 106 | gagan   | gagan@gmail.com   | clerk              | 8973443448 | 1989-10-08 | 2019-12-07 |  19000 |     10 | B+         |   30 |
+| 109 | sandra  | sandra@gamil.com  | software-developer | 8532478443 | 1985-06-02 | 2001-08-18 |  55000 |     20 | B+         |   34 |
+| 110 | martin  | martin@gamil.com  | tester             | 9866747534 | 1993-11-01 | 2018-08-04 |  28000 |     20 | A+         |   26 |
+| 111 | zakir   | zakir@gmail.com   | salesman           | 9854683828 | 1985-07-18 | 2012-10-07 |  29000 |     30 | B+         |   34 |
+| 113 | sachin  | sachin@gmail.com  | clerk              | 7864097976 | 1991-10-02 | 2018-04-18 |  35000 |     10 | O+         |   28 |
+| 114 | pushpa  | pushpa@gamil.com  | tester             | 7896747534 | 1991-08-02 | 2019-08-14 |  38000 |     10 | B+         |   28 |
+| 115 | nandini | nandini@gmail.com | NULL               | NULL       | 1997-12-27 | 2019-02-15 |  40000 |   NULL | NULL       | NULL |
++-----+---------+-------------------+--------------------+------------+------------+------------+--------+--------+------------+------+
+11 rows in set (0.00 sec)
+********************************************************************************************************************************************************** 
+
+*)INSTR(STRING,SUBSTRING);
+
+//STRING--> IT IS A STRING WHERE SUBSTRING HAS TO BE SEARCHED;
+//SUBSTRING--> IT IS A SUBSTRING;
+//RESULT SET IS IN INTEGER
+
+WAQ to search the position of 'a' in the name column;
+
+mysql> select instr(name,'a') from employee_info;
++-----------------+
+| instr(name,'a') |
++-----------------+
+|               1 |
+|               1 |
+|               5 |
+|               3 |
+|               2 |
+|               3 |
+|               2 |
+|               1 |
+|               1 |
+|               2 |
+|               2 |
+|               2 |
+|               1 |
+|               2 |
+|               6 |
+|               2 |
++-----------------+
+16 rows in set (0.00 sec)
+********************************************************************************************************************************************************** 
+
+*)REPLACE(STRING,SUBSTR1,SUBSTR2);
+
+//STRING --> GIVEN STRING;
+//SUBSTR1-->SUBSTRING OF GIVEN STRING;
+//SUBSTR2-->STRING TO BE REPLACED IN PLACE OF SUBSTRING;
+
+WAQ to replace the letter 'a' with letter 'z' in the name;
+
+mysql> select replace(name,'a','z') from employee_info;
++-----------------------+
+| replace(name,'a','z') |
++-----------------------+
+| zrun                  |
+| zjzy                  |
+| bhuvzn                |
+| chzndzn               |
+| dznny                 |
+| frznk                 |
+| gzgzn                 |
+| znushz                |
+| znne                  |
+| szndrz                |
+| mzrtin                |
+| zzkir                 |
+| zkhil                 |
+| szchin                |
+| pushpz                |
+| nzndini               |
++-----------------------+
+16 rows in set (0.00 sec)
+********************************************************************************************************************************************************** 
+WAQTD no of employee who are working in dept no 20 and whose salary is greater than 15000;
+
+mysql> select count(*) from employee_info
+    -> where deptid=20 and salary>15000;
++----------+
+| count(*) |
++----------+
+|        5 |
++----------+
+1 row in set (0.00 sec)
+********************************************************************************************************************************************************** 
+
+
+
+
