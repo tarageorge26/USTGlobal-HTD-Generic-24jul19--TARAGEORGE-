@@ -1,0 +1,24 @@
+.navbar{
+    background-color: rgb(141, 5, 5);
+
+}
+.navbar-brand{
+    margin-left: 10%;
+    color: aliceblue;
+}
+.navbar-brand:hover{
+    color: aliceblue;
+}
+.hello{
+    background-color: rgb(43, 40, 40);
+}   
+.paragraph{
+    margin: 3%;
+    margin-bottom: 5%;
+}
+.hi{
+color: rgb(100, 14, 14);
+}
+.bhanu{
+    color: brown;
+}
