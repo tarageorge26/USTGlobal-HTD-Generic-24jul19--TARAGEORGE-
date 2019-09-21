@@ -1,0 +1,18 @@
+<div class="container">
+<table class="table table-bordered">
+    <thead>
+        <tr>            
+            <td>Task Name</td>
+            <td>update</td>
+            <td>delete</td>
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor='let t1 of arr'>                
+                <td>{{t1}}</td>
+                <td><button class="btn btn-primary"(click)='update(t1)'>update</button></td>
+                <td><button class="btn btn-danger"(click)='delete(t1)'>delete</button></td>
+            </tr>
+    </tbody>
+</table>
+</div>
