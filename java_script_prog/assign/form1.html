@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Forms</title>
+    <style>
+        body{
+            margin-left: 25%;
+            margin-right: 50%;
+        }
+    </style>
+</head>
+<body>
+    <legend>
+        <fieldset>
+            <form onsubmit="validateform()" action="" method="get">
+                <div>
+                    <label for="">Username</label>
+                </div>
+                <div>
+                    <input onkeyup="validateform()"name='uname' type="text" required>
+                </div>
+                <div>
+                    <label for="">Password</label>
+                </div>
+                <div>
+                    <input onkeyup="validateform()"name='passwrd' type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                </div>
+                <br>
+                <div>
+                    <input type="submit" name='loginSubmit' value="Login" >
+                </div>
+            </form>
+        </fieldset>
+    </legend>
+    
+
+    <script src="form1.js"></script>
+</body>
+</html>

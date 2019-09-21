@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     var john = ['john',50,6.2,'78kg'];   
+    var emp=[
+            {
+             name :'varun',
+             age : 29  
+            },
+            {
+             name :'deepika',
+             age :  35  
+            },
+            {
+             name:'singh',
+             age:90   
+            }
+            ]
+    var cd = new Object();
+     cd.price=35;
+     cd.type="rewritable";
+     cd.capacity="4.35GB";
+    for(var i=0 ; i < emp.length ; i++)
+    {
+        console.log(emp[i]);
+        
+    }
+    console.log("\n")
+    for( var val of john){
+        console.log(val);
+    }
+    console.log("\n")
+    for(var key in cd){
+      console.log(cd[key]);  
+    }
+    // console.log(Math.max(10,20,60,70,23));
+    // console.log(Math.min(10,20,60,70,23));
+
+</script>
+    
+</body>
+</html>
