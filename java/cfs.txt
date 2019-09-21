@@ -1,0 +1,33 @@
+IF-ELSE STATEMENT:
+
+SYNTAX:
+     
+      if(condition1){
+
+  	--stmtnts--
+	}
+      else{
+	
+	--stmnts--
+	}
+
+***************************************************************************************************************************************************************************
+IF-ELSEIF LADDER,SWITCH;
+***************************************************************************************************************************************************************************
+LOOPS;
+***************************************************************************************************************************************************************************
+METHODS: are named block of codes specific to some task;we can create method only inside the class;if we try to create a method inside a method it myt cause a problem;
+	 it will always start from a small letter and followed by(it may or maynot contain args list);
+	 arguments type can be primitive type, null or reference type; 
+	 return stmt returning type data should always match with the return type of method;
+
+        methods may or may not return value;
+	a method will only execute if it is called by passing the required agruments;
+	a method which is being called is known as called method, a method which is calling another method is known as calling method;
+
+access specifier--->specifies the visibility of the component or element;
+access modifiers--->specifies that whether the component belongs to a specific class or object;
+return type--->it can be primitive or reference;if return type is other than void we need to place retrun stmt at the last line of the function;
+
+
+

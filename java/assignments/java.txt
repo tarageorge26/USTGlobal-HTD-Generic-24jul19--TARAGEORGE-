@@ -1,0 +1,757 @@
+Q. History of java.
+
+	a) Oak ( 1995-96).
+	b) Developed by James gosling in sun microsystem.
+	c) java is object oriented programing language.
+***********************************************************************************************************************************************************************
+Q. Editions
+
+	a) java Standard Edition(SE).   --> Develop standalone application.
+	b) java Micro Edition   (ME).   --> Small size device ex: calculator.
+	c) java Enterprise Edition(EE). --> Organization,bussiness purpose.
+
+***********************************************************************************************************************************************************************
+Q. Application
+	a) Stand alone application.
+	b) Web Application.
+
+***********************************************************************************************************************************************************************
+Q. Why java so popular ?.
+
+	1) java is very easy to learn.
+	2) java has 1000(lot of methods) methods which is difficult to remember.(either it can be taken as advantage or disadvantage).
+	3) java is platform independent(once it is complied it can work in any of the operatig system).i.e wtite once use 'N' number of times.
+
+***********************************************************************************************************************************************************************
+Q. Developemnt of any of the application we should follow the following steps ?.
+
+	1) First we write the source code present in source file.
+	2) To make that source file as java source file then we have to save with an extension .java i.e( source.java).
+	3) Before .java file executes file must be complied i.e javac checks the syntax(rules). java complier chcks the syntactical error.
+	4) Command for compiling .java file we use (javac src.java).
+	5) I/P to the java compiler was .java and O/P will be .class
+	6) To execute that .class file we have command ( java classname).
+	7) Whole java works on the concept of virtual(imagination,not real) machine. ie. JVM(java virtual machine).
+	8) JRE is an Application ,it enables to create JVM ,in that machine we are able run .class file
+	9) .class file can be run in any of the Operating system that have JRE.
+	10) Inside JVM  we have JIT(Just in time compiler, which convert byte codes to binary codes).
+	11) .class file contain byte code( It is a kind a of language neither understand by humans nor system). JVM can understand the byte code.
+	12) JVM acts as an interpreter.
+	13) Byte code is reason for platform independancy.
+	14) JIT, it converts byte code into machine understantable language ie binary language.
+
+**********************************************************************************************************************************************************************
+Q. Working flow of java Program.
+
+
+		-------	  .java		-------	 .class(ready for execution)		
+		-------   ----------> 	-------    -----------------------------> JVM --> JRE
+		-------	 		-------	                                  JIT
+		src.java		javac
+
+					a)checks syntax
+
+					 if(syntax correct)
+					{
+					 s.o.p("generate .class file");
+					}
+					else{
+					s.o.p("throws an compile time error");
+					}
+
+**********************************************************************************************************************************************************************
+Q. java program
+
+	Two parts:
+		a) Declaration.
+		b) Defination.
+
+*********************************************************************************************************************************************************************
+Q. Writing a program we use either
+
+	a) class.
+		public class classname
+					{ 
+					  // statements (body, block, definition) }
+						                                   
+	b) interface.
+
+**********************************************************************************************************************************************************************
+Q. Basic program
+
+	a) If we want to make changes in the .java file again we have to compile it, then only it reflect the changes we made in the .java file
+		
+	public class HelloJava{
+		public static void main(String[] args) {
+		System.out.println("Hello Java");
+		System.out.println("Hello World");
+		}
+	}
+
+**********************************************************************************************************************************************************************
+Q. Why java is called as Object oriented programming language ?
+
+ 	a) Objects are elements of a program that has some DATA, which is also known as STATES.
+	b) Objects also has BEHAVIORS which means they can perform certain operation. Those behavior in java is called as METHODS.
+
+**********************************************************************************************************************************************************************
+Q. Keywords
+
+	1) Keywords are the words which has pre-defined meaning inside a programming language.
+	2) Java is case sensitive language.
+	3) 50 keywords in java. But we have 3 literals(True,False etc) they are also called as keywords. Therefore we have 53 keywords. 
+
+**********************************************************************************************************************************************************************
+Q. Identifiers
+
+	a) Identifiers are the name given to the variables, class and methods.(Name given to components/Elements of a program)
+	b) RULES to follow when we are creating an identifier:
+
+		1) It should starts with alphabets or a letter.
+		2) It can't start from a digit.
+		3) After the first character it can starts from a digit. Hence it is Alphanumeric.
+		4) Identifiers are also case sensitive.
+		5) Keywords can not be used as identifiers.
+		6) _ and $ are the only two special characters can be allowed.
+		7) spaces are not allowed between identifiers when we have two or more identifiers.
+
+*********************************************************************************************************************************************************************
+Q. Note
+
+	a) If a class is public then you should save that file with same name as class name.
+	b) If we want to execute/Run the java program JRE is enough.
+	c) If we want to develope an application JDK is needed.
+	d) Java is a strongly typed language.
+	e) cmd: (javap classname)--> we can see what are all the methods present in program(.java). 
+	f) Java coding convention (check in google).
+
+*********************************************************************************************************************************************************************
+Q. Variables
+
+	a) It is piece of memory that has certain name, So we can store certain DATA in a variable.
+	b) Named memory location to store the DATA.
+	c) Every variable should have data type.
+	d) variables can be re-initialized.
+	e) From java 9 var as become a keyword.
+
+	1) Declaration.
+	2) Initialization
+	3) Utilization.
+
+
+	Example: int a; 	//Declaration.
+		 a=10; 		//Initialization
+		s.o.p(a);	//Utilization.
+
+	Example: byte b=12;	//Declaration and Initialization in same line
+		 s.o.p(b);			
+
+*********************************************************************************************************************************************************************
+Q. Data Type
+
+	a) Data type is nothing but it is a type of data which specifies what type of data is a variable is holding.
+	b) Data types are classified into two types namely:
+
+		i)  Primittive Data type.
+		ii) Refference Data type.
+
+	i)  Primittive Data type: A data type which is defined by the language is called as Primittive Data type.
+
+		a) Java has 8 primittive data types(out of 8 data types 6 were used for numbers).
+
+			1) byte data type: 
+				a) It can contain numeric value.
+				b) size  :  8 bits(1 byte).
+				c) Range : -128 to 127.
+			
+			2) short data type:
+				a) It can contain numeric value.
+				b) size  : 2 bytes.
+				c) Range : -32768 to 32767
+
+			3) integer data type:
+				a) It can contain numeric value.
+				b) size   : 4 bytes.
+				c) Range  : 2 billion aprox.
+				d) Example: int a=10;
+
+			
+			4) long data type:
+				a) It can contain numeric value.
+				b) size  : 8 bytes.
+				c) Range : 9 billion aprox.
+
+			5) double data type:
+				a) It can contain numeric value with decimal point value.
+				b) decimal point of double can hold  more than 6 digits (max:16).
+				c) Example : double d=1.123456789
+				d) size    : 8 bytes.
+				
+			6) float data type:
+				a) It can contain numeric value with decimal point value.
+				b) decimal point of float can hold  6 or 7 digits.
+				c) example : float f=1.234567f
+				d) size    : 4 bytes.
+			
+			7) character data type(literals).
+				a) It can take only single character.
+				b) It should be wriiten in single quotes.
+				c) Example: char c='A';
+
+			8) Boolean data type(literals).
+				a) It can take the value as true or false.
+				d) Its size is not defined.
+
+	EXAMPLE:
+
+		public class Sample123{
+	 		public static void main(String[] args) {
+			byte b=127;
+			short s =32767;
+			float f=1.123456789f;
+			double d=1.1234567891234567891;
+			char c1='A';
+			boolean bn=true;
+			char c3='a';
+			//char c2='AB'; (throws an error it must of single character)
+		 	// char c4=a;  (error: should be in single code).
+			System.out.println(b);
+			System.out.println(s);
+			System.out.println(f);
+			System.out.println(d);
+			System.out.println(c1);
+			//System.out.println(c2);
+			System.out.println(c3);
+			System.out.println(bn); 		
+		        }  }	
+
+***********************************************************************************************************************************************************************		
+Q. WHY DO WE NEED VARIABLES ?
+
+	a) To perform some operation.
+	b) That Operation is performed by some Operators.
+
+***********************************************************************************************************************************************************************
+Q. OPERATORS.
+
+	a) An Operator is a special symbol or keyword that is used to designate the mathematical operation or some other type of Operation.
+	b) These Operations can be performed on one or more than one values called as OPERANDS.
+
+***********************************************************************************************************************************************************************
+Q. TYPES OF OPERATORS
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	1) ARITHMETIC OPERATOR :  +, -, *, /, % 
+			       :  + and - are Additive arithmetic operator.
+			       :  *, / , % are called multiplicative Operator.
+			Example: 4%2 ---> 4/2 ---> 4/1 * 1/2 ( finally we land into Multiplication Operator).
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	2) ASSIGNMENT OPERATOR : =, +=, -=, *=, /= , % =
+			       : It is also called as Compound Operator.
+
+			Example:
+					public class AssignmentOperator{
+					public static void main(String[] args) {
+					int i=400;
+					int j=200;
+					System.out.println("i="+i);
+					System.out.println("j="+j);
+					System.out.println("***************************************");
+					i+=j;
+					System.out.println("i="+i);
+					i-=j;
+					System.out.println("i="+i);
+					i*=j;
+					System.out.println("i="+i);
+					i/=j;
+					System.out.println("i="+i);
+					i%=j;
+					System.out.println("i="+i); }  }
+
+			OUTPUT: 	E:\UST global\JAVA\Operators>java AssignmentOperator
+					i=400
+					j=200
+					***************************************
+					i=600
+					i=400
+					i=80000
+					i=400
+					i=0 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	3) INCREMENT AND DECREMENT OPERATOR : 
+				
+		a) INCREMENT Operator(++) increment the value by one unit.
+		b) DECREMENT Operator(--) decrement the value by one unit.
+		c) These are also called as UNARY OPERATOR.
+
+		d) When we use the operator before the operand then it is called as :
+
+			i) pre-increment operator(working flow of the operator).
+				1) Increment.
+				2) Substitute.
+				3) Utilize.
+			ii) pre-decrement operator.
+
+		e) When we use the operator after the operand then it is called as  :
+
+			i) post-increment operator(working flow of the operator).
+				1) Substitute.
+				2) Utilize.
+				3) Increment.
+			ii) post-decrement operator.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	4) RELATIONAL OPERATORS OR COMPARISIONAL OPERATOR: 
+	
+		a) They are used to compare the two operands.
+		b)  Types of Relational operator:
+		     i)   == : It returns true when both side of the equation else false.
+		    ii)   != : It returns true When both side of the eqn is not true.
+		   iii)   <  : Returns true if the left side of eqn is less than rightside eqn . 
+		    iv)   >  : Returns true if the left side of eqn is greater than rightside eqn.
+	             v)   <= : Returns true if the left side of eqn is less than and equal to rightside eqn . 
+		    vi)   >= : Returns true if the left side of eqn is greater and equal to than rightside eqn.
+		c) The return type of Relational operator is BOOLEAN.
+
+	EXAMPLE :
+
+		public class RelationalOperator{
+		public static void main(String[] args) {
+		int i=10;
+		int j=20;
+		boolean b =i==j;
+		System.out.println("for == "+b);
+		b=i!=j;
+		System.out.println("for != "+b);
+
+		b= i> j;
+		System.out.println("for > "+b);
+
+		b=i>=j;
+		System.out.println("for >= "+b);
+
+		b=i<j;
+		System.out.println("for < "+b);
+
+		b=i<=j;
+		System.out.println("for <= "+b); } }
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	5) LOGICAL OPERATOR : 
+
+		a) Whenever we need to check two or more operand at same time we go for LOGICAL OPERATOR.
+		b) Return type of this operator is BOOLEAN.
+		c) Not operator is a unary operator
+		d) TYPES :
+			 i) NOT (!)  : It returns false if the RHS is true.
+			ii) AND (&&) : a) It is called as conditional AND or Logical AND operator.
+				       b) Both condition must be satisfied.
+				       c) If the first candition is false it will not check the condition.
+					
+		       iii) OR (||)  : a) Any one of the condition must be true.
+
+
+ NOT OPERATOR :
+
+		TRUTH TABLE:
+	_______________________
+	A		Y
+	_______________________
+	T		F
+		
+	F		T
+	______________________
+				       
+			
+ 	 1)  AND:
+   		-----------------------
+		A	B	Y
+  		-----------------------
+		T	T	T
+      		----------------------
+		T	F	F  
+		---------------------
+		F	T	F	
+		--------------------	
+		F	F	F		
+  	 -----------------------------------------------
+
+ 	 Where : A is condition1 and B condition2.
+
+		case1: If first ondition is false , and operator returns false without chking 2nd condition.
+		case2: If the 1st condition is true,then the result depend on the 2nd condition
+		case3: If both the condition is true , then the result is true.
+		case4: If both the condition is false, then the result is flase. 
+
+	 OR OPERATOR: If the 1st condition is true the result of all operator is true without cheking the 2nd condition.
+
+		Truth Table:
+		__________________________________
+		A	B		Y
+		__________________________________
+		
+		T	T		T
+
+		T	F		T
+
+		F	T		T
+
+		F	F		F
+		________________________________	
+
+	CASES:
+		case 1: If the 1st condition is true the result of all operator is true without cheking the 2nd condition.
+		cases 2: If the 2nd condion is true then the result is true.
+		case 3: If both condition is false then the result is false.
+
+	EXAMPLE :
+		public class LogicalOperator{
+		public static void main(String[] args) {
+		boolean b1= true;
+		boolean b2=false;
+
+		boolean b = b1 && b2;
+		System.out.println("for &&  is : "+b);
+
+		b = b1 || b2;
+		System.out.println("for || is : "+b);
+
+		b = !(b1||b2);
+		System.out.println("for ! is : " +b);} }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	6) BITWISE OPERATOR : 
+		
+		a) Operation is performed by bitwise was bit by bit.
+		b) Types : &, | , ^(i/p are same then the result is 0 else 1),complements.
+
+	EXAMPLE : 
+
+		public class BitwiseOperator{
+		public static void main(String[] args) {
+		int b1=2;
+		int b2=3;
+
+		int b= b1 & b2;
+		System.out.println("for & :"+b);
+
+		b= b1 | b2;
+		System.out.println("for | :"+b); } }
+
+***********************************************************************************************************************************************************************
+Q. CONTROL FLOW STATEMES : 
+
+ 	a) It is used to control the flow of execution.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+	1) IF SATEMENT:
+		
+		a) It is control flow statement.
+		b) If the condition is true ,then if block will execute.
+		c) If it condition is false , then it will terminate from the if bolck.
+
+		SYNTAX: if(condition){
+					//statements.
+						}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	2) IF-ELSE STATEMENTS :
+
+		a) It is control flow statement.
+		b) If the condition is true ,then if block will execute.
+		c) If it condition is false , then else block will execute.
+		d) It is also called as else if ladder.
+
+		SYNTAX :if(condition){
+					//statements.
+						}
+			else{
+					//statements.
+						}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	3) IF-ELSEIF : 
+
+		a) It is also called as else if ladder.	
+		b) Whenever we have more than one boolean condition , then will go foe if-elseif, ie when we have multipole condition.
+		c) 
+
+		SYNTAX : 
+			if(condition){
+				//statements }
+			else if(condition){
+				//statements }
+			else if(condition){
+				//statements }
+				.......
+				.......
+				...N....
+
+			else{
+				//statements }
+
+	EXAMPLE :
+		public class IfElseIfExample{
+		public static void main(String[] args) {
+		double marks=41;
+		if(marks >=91 && marks <=100)
+		{
+			System.out.println("A grade");
+		}
+
+		else if( marks >=81 && marks<=90)
+		{
+			System.out.println("B grade");
+		}
+		else if( marks>=71 && marks <=80)
+		{
+			System.out.println("C grade");
+		}
+		else if( marks>=61 && marks <=70)
+		{
+			System.out.println("D grade");
+		}
+		else if(marks >=51 && marks <=60)
+		{
+			System.out.println("E grade");
+		}
+		else if(marks >=41 && marks <=50)
+		{
+			System.out.println("Re-Test");
+		}
+		else if(marks>=0 && marks <=40)
+		{
+			System.out.println("Fail");
+		}
+		else{
+			System.out.println("Invalid Entry of the marks"); } } }		
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	4) SWITCH STATEMENT  : 
+
+		a) It only check for EQUALITY.
+		b) break statement : when a pgm is executed at that time break statement is encountered then it will come out of that block.
+		c) Not at all mandatory to write the break statement ,but it is a good practice to have a break statement.
+		
+		SYNTAX :
+
+			switch(condition)
+			{
+			 case1: //statements
+			 break;
+			}
+			{
+			 case2: //statements
+			 break;
+			}
+			{
+			 case3: //statements
+			 break;
+			}
+			 default: //statements
+
+**********************************************************************************************************************************************************************
+		
+Q. LOOPING STATEMENTS : 
+			 Loops in java are nothing but when we want to execute a certain statements again and again.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	1) FOR LOOP : 
+			a) It checks the condition again and again until the the certain condition to be false.
+			b) Initialization can happen only once.
+			c) Increment/Decrement can happen 'N' number of times(based on condition).
+			d) for(; ;) {} --> Infinite loop because there will no condition to terminate that loop.
+			e) If we have infinite loop then we cant right any statements after the infinite loop
+
+		SYNTAX :
+				for(initialization ; test-condition ; counter or (increment/decrement))	
+				 {  
+					//Statements
+					//Statements
+					//Statements
+				 }
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	2) WHILE LOOP : 
+
+			a) when certain lines of code needs to be executed again and again.
+			b) Initialization must be done outside the while loop.
+			c) Increment/Decrement must be written inside the while loop.
+			d) Condition is evaluated before the execution.
+				
+				SYNTAX : 
+					while(condition)
+					 {
+					  // statements
+					 }
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	3) DO WHILE LOOP :
+
+			a) Same as while loop, only difference is first it will execute first and then check the condition.
+			b) If the condition is true it will again execute , else it will cpme out of the loop.
+			c) Do while loop exeute atleast once.
+			
+				SYNTAX :
+					do
+					 {
+				 	   //statements
+					 }while(condition);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	4) FOR EACH LOOP :
+				a) It is used in ARRAYS and COLLECTIONS.
+
+**********************************************************************************************************************************************************************
+Q. Q. WAP using CFS and looping statements where in the user can print his name once if the days of the week are weekday.
+
+		public class Example1{
+		public static void main(String[] args) {
+		int dayNum =6;
+		String name ="JEEVITHA PAWAR";
+
+		switch(dayNum)
+		{
+			case 1 : 
+			case 2 : 
+			case 3 : 
+			case 4 : 
+			case 5 : 
+			{
+				System.out.println("name ="+name);
+				break;
+			}
+			case 6 :
+			case 7:
+			{
+				for(int i=1;i<=5;i++)
+				{
+					System.out.println("name ="+name);
+				}
+			}
+
+			default : System.out.println("invalid entry"); }}}
+
+***********************************************************************************************************************************************************************
+Q. METHODS:
+
+	a) Methods are named blocked of code , which performs specific task.
+	b) To perform same operation in different class we use methods.
+
+	c) How methods are created :
+		i)  Methods Declaration.
+		ii) Methods Definition.
+ 
+	d) Method can be identified easly because method will start from small letter and followed by parenthesis.
+	e) ClassName should always start with Capital letter.
+
+	f) Access Specifier : It specify the visibility of any of the code component.
+	g) Access Modifier  : It tells that the component belong to the particular CLASS or OBJECT.
+	h) ReturnType       : It can be any of primittive data types, void or reference data type(void is empty).
+
+	i) If the return type is any thing other than void we have to add a return statements.
+	j) Method may or may not return value.
+	k) Method will only execute if it been CALLED by passing the requried argument.
+	l) Method which is been called is known as called Method.
+	m) Method which is calling another Method is known as calling Method.
+	n) Arduments can be any of primitive dataType, reference datatype or null.
+	o) We can create a method only inside a Class.
+	p) We cant create a Method inside a Method, it is against the rule of java.
+	q) We have something called as Class loder & main method will be called by the compiler.we are not going to call the main method.
+
+	r) ADVANTAGE : 
+		1) Reduce the number of lines of code
+		2) Code re-usability.
+
+
+	SYNTAX :	AccessSpecifier AccessModifier ReturnType methodName(argument list)	//Method declaration							
+			{
+			  // Method definition
+			   statements
+			   statements
+			   return statement;
+
+			}
+
+
+	Example :	public static void main(String [] args)
+			{
+			 //Method definition
+			}
+
+*********************************************************************************************************************************************************************
+Q. PACKAGE :
+
+	a) pakage
+		i) com (domain), package name should start with domain name. 
+		ii) edu
+
+*********************************************************************************************************************************************************************
+Q. ARRAYS :
+
+	a) It is a homogeneous group of data.
+	b) Inside array we have INDEX.
+	c) INDEX are use to identify particular bucket.
+	d) Index of an array will always starts frim ZERO.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	DECALRATION OF AN ARRAY:
+			
+		SYNTAX: datatype[] arrayname;
+				
+				or
+			datatype arrayname[];
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	CREATION OF AN ARRAY:
+
+		SYNTAX: arrayname = new datatype[size];
+		EXAMPLE: Numbers= new int[5]; 
+
+
+
+
+
+
+					
+
+					
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
