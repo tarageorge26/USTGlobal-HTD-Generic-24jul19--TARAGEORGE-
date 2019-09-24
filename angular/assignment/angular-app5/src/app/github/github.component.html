@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="card card-body " *ngFor='let git of gitNews'>
+        <img src="{{git.avatar_url}}" alt="" class="card-img-top">
+        <p>{{git.id}}</p>
+        <h3>{{git.node_id}}</h3>
+        <a href="{{git.url}}" class="btn btn-primary">click here for more</a>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="col-md-4 offset-md-4 mt-4">
+    <div class="text-center">add user</div>
+    <form #carsForm='ngForm' (ngSubmit)='postcars(carsForm)' method="POST" role="form">
+    <input type="hidden" name="id" #id='ngModel' [(ngModel)]="carsService.selectedUser.id">
+    <input type="text" name="brand" class="form-control mb-3 mt-3"
+    #brand= 'ngModel' [(ngModel)]="carsService.selectedUser.brand" placeholder="enter brand.." required minlength="3">
+    <input type="text" name="model" class="form-control mb-3 mt-3"
+    #model= 'ngModel'  [(ngModel)]="carsService.selectedUser.model" placeholder="enter model.." required minlength="3">
+    <input type="number" name="year_of_release" class="form-control mb-3 mt-3"
+    #year_of_release = 'ngModel'  [(ngModel)]="carsService.selectedUser.year_of_release" placeholder="enter year of release.." required minlength="4">
+    <input type="number" name="cost" class="form-control mb-3 mt-3"
+    #cost= 'ngModel'  [(ngModel)]="carsService.selectedUser.cost" placeholder="enter cost.." required minlength="5">
+    <input type="number" name="units_sold" class="form-control mb-3 mt-3"
+    #units_sold= 'ngModel'  [(ngModel)]="carsService.selectedUser.units_sold" placeholder="enter no of units sold.." required minlength="4">
+    
+    <button type="submit" class="btn btn-outline-success float-right"
+    [disabled]='carsForm.invalid'>submit</button>
+</form>
+</div>

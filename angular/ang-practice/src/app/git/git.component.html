@@ -1,0 +1,20 @@
+<table class=" table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>RepoUrl</th>
+            <th>Photo</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let users of gitusers'>
+            <td>{{users.id}}</td>
+            <td>{{users.login}}</td>
+            <td><a href="{{users.url}}">click here for repo</a></td>
+            <td><img src="{{users.avatar_url}}" alt="" height="100px" width="100px"></td>
+            <td><button class="btn btn-danger"(click)='deleteuser(users)'>delete</button></td>
+        </tr>
+    </tbody>
+</table>

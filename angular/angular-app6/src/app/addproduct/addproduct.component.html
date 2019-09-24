@@ -1,0 +1,21 @@
+<div class="col-md-4 offset-md-4 mt-4">
+    <div class="text-center">add product</div>
+    <form #productForm='ngForm' (ngSubmit)='postProduct(productForm)' method="POST" role="form">
+    <input type="hidden" name="id" #id='ngModel' [(ngModel)]="prodService.selectedprod.id">
+    <!-- <label for="">Product Name</label>
+    <input type="text" name="name" class="form-control mb-3 mt-3"
+    #name= 'ngModel' [(ngModel)]="prodService.selectedprod.name" placeholder="enter name.." required minlength="3"> -->
+    <label for="">Brand</label>
+    <input type="text" name="brand" class="form-control mb-3 mt-3"
+    #brand= 'ngModel' [(ngModel)]="prodService.selectedprod.brand" placeholder="enter brand.." required minlength="3">
+    <label for="">URL</label>
+    <input type="url" name="url" class="form-control mb-3 mt-3"
+    #url= 'ngModel'  [(ngModel)]="prodService.selectedprod.url" placeholder="specify url.." required minlength="3">
+    <label for="">description</label>
+    <input type="text" name="description" class="form-control mb-3 mt-3"
+    #description = 'ngModel'  [(ngModel)]="prodService.selectedprod.description" placeholder="add a description.." required minlength="4">
+
+    <button type="submit" class="btn btn-outline-success float-right"
+    [disabled]='productForm.invalid'>submit</button>
+</form>
+</div>

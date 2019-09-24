@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="card card-body col-md-6 offset-md-3 mt-5">
+            <h4 class="text-center">please login</h4>
+        <form action="" #loginform='ngForm' (ngSubmit)='print(loginform)'>
+            <div class="form-group">
+                <label for="username" class="col-md-12">username</label>
+                <input type="email" name="username" placeholder="enter username" class="form-control col-md-12" #username='ngModel' ngModel required minlength="5" email>
+                <div *ngIf='username.touched && username.invalid'>
+                    <div class="alert alert-danger" *ngIf='username.errors.required'>this field is required</div>
+                    <div class="alert alert-danger" *ngIf='username.errors.minlength'>minimum length is 5</div>                    
+                    <div class="alert alert-danger" *ngIf='username.errors.email'>this field takes email</div>
+                </div>
+            </div>
+            <div class="form-group">
+                    <label for="password" class="col-md-12">password</label>
+                    <input type="password" name="password" placeholder="enter password" class="form-control col-md-12" #password='ngModel' ngModel required minlength="5">
+                    <div *ngIf='password.touched && password.invalid'>
+                        <div class="alert alert-danger" *ngIf='password.errors.required'>this field is required</div>
+                        <div class="alert alert-danger" *ngIf='password.errors.minlength'>minimum length is 5</div>                    
+                    </div>
+            </div>
+            <div class="btn-group col-md-12">
+                <button type="submit" class="btn btn-success"[disabled]='loginform.invalid'>submit</button>
+                <button type="reset" class="btn btn-danger">reset</button>
+            </div>
+        </form>
+    </div>
+</div>

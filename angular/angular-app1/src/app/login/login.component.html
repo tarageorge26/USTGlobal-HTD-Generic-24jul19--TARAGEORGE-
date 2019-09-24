@@ -1,0 +1,51 @@
+<div class="container">
+        <div class="card card col-md-6 offset-3 mt-5">
+            <h4 class="text-center">please login</h4>
+        <!-- <div class="card-body"> -->
+         <form action="" #loginForms='ngForm'(ngSubmit)='printForm(loginForms)'>
+        <div class="form-group">
+            <label for="username" class="col-md-12">username</label>
+            <input type="email" name="username" required placeholder="username" class="form-control  col-md-12 " #username='ngModel' ngModel required minlength="5" email >
+            <div *ngIf='username.touched && username.invalid'>
+                    <div class="alert alert-danger"  *ngIf='username.errors.minlength'>minimum length of input is 4</div>
+                    <div class="alert alert-danger"  *ngIf='username.errors.required'>field required</div>
+                    <div class="alert alert-danger"  *ngIf='username.errors.email'>this input field seems to take email only </div>
+            </div>    
+        </div>
+        <div  class="form-group">
+             <label for="password"class="col-md-12">password</label> 
+            <input type="password" name ="password" required placeholder="password" class="form-control col-md-12" #password='ngModel' ngModel required minlength="4" pattern="tara">
+            <div *ngIf='password.touched && password.invalid'> 
+                    <div class="alert alert-danger"  *ngIf='password.errors.minlength'>minimum length of input is 4</div>
+                    <div class="alert alert-danger"  *ngIf='password.errors.required'>field required</div>
+                    <div class="alert alert-danger"  *ngIf='password.errors.pattern'>pattern doesnt match </div> 
+            </div>
+        </div>
+        <div  class="btn-group col-md-12">
+            <button type="submit" class="btn btn-success "[disabled]='loginForms.invalid'>Submit</button>
+            <button type="reset" class="btn btn-danger ">Reset</button>
+        </div>
+         <!-- <p class="navbar-text pull-right offset-3 col-md-8">
+                <a href="#" class="navbar-link">Forgotten account? </a>
+                <a href="#" class="navbar-link"> Sign up for facebook </a>
+               </p> -->
+    </form>              
+    </div> 
+    </div>
+   
+    <!-- <div class="container">
+        <table>
+            <tr >
+                <th>id</th>
+                <th>username</th>
+                <th>password</th>
+            </tr>
+            <tbody>
+                <tr *ngFor let user of users:index of i>
+                    <td>i+1</td>
+                    <td>username.value</td>
+                    <td>username.value</td>
+                </tr>
+            </tbody>
+        </table>
+    </div> -->

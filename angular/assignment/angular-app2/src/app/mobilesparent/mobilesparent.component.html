@@ -1,0 +1,13 @@
+<h1 class="text-center">mobiles</h1>
+
+<div class="container mt-5">
+    <div class="col-md-3 float-left"> 
+       <div class="card card-body " *ngFor="let m1 of mobiles">
+           <img src="{{m1.img}}" alt="" class="card-img-top"
+           (click)='sendData(m1)'>
+           <!-- <h4 class="card-title">{{.brand}}</h4> -->
+       </div>
+     </div>
+           <app-mobileschild [mobDetails]='mobData'></app-mobileschild>
+        
+   </div>

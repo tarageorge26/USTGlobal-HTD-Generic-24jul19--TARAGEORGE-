@@ -1,0 +1,11 @@
+<div class="col-md-4 offset-md-4 card card-body mt-5">
+    <input type="text" [(ngModel)]="dataFromInput" class="form-control" (keyup)= "buttonEvent(dataFromInput)">
+</div>
+<!-- <h1 class="text-center">{{dataFromInput}}</h1> -->
+
+<!-- <img src="{{dataFromInput}}" alt=""> -->
+
+<!-- <button class="btn btn-primary col-md-4 offset-md-4 " (click)= "buttonEvent('hello from HTML')">Give Alert</button> -->
+<h1 class="text-center" [style.background]="backgroundcolor" >event binding  </h1>
+
+<button class="btn btn-primary col-md-4 offset-md-4 btn-hover   " (click)= "change(dataFromInput)">change color </button>

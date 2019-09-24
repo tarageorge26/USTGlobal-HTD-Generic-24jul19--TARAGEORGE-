@@ -1,0 +1,33 @@
+<div class="container">
+    <input type="search" class="form-control" [(ngModel)] ='search'>
+<table class="table table-bordered table-hover mt-5">
+    <thead class="thead-dark">
+        <tr>
+            <th>index</th>
+            <th>brand</th>
+            <th>model</th>
+            <th>year_of_release</th>
+            <th>cost</th>
+            <th>units_sold</th>
+            <th>update</th>
+            <th>delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor ='let car of carsService.cars;index as i'>
+            <td>{{i+1}}</td>
+            <td>{{car.brand}}</td>
+            <td>{{car.model}}</td>
+            <td>{{car.year_of_release}}</td>
+            <td>{{car.cost}}</td>
+            <td>{{car.units_sold}}</td>
+            <td>
+                <button class="btn btn-warning" (click)="updatecar(car)">update</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" (click)="deletecar(car)">delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>

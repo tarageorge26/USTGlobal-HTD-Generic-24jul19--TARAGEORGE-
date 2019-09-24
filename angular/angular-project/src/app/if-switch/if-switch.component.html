@@ -1,0 +1,16 @@
+<!-- <div *ngIf='condition'></div> -->
+<!-- <input type="text" #inputElement>                                     /*------template reference variable---------*/
+<button (click)="printInput(inputElement)">print this input</button> -->
+<!-- <div *ngIf='condition; then trueBlock else falseBlock'></div>
+<ng-template #trueBlock>condition is true</ng-template>
+<ng-template #falseBlock>condition is false</ng-template> -->
+
+
+<div [ngSwitch]='person'>
+    <p *ngSwitchCase='"arun"'>arun's code is running</p>
+    <p *ngSwitchCase='"bharath"'>bharath's code is running</p>     <!--/*specify the case values using both th quotes*/ -->
+    <p *ngSwitchCase='"tara"'>tara's code is running</p>
+    <p *ngSwitchCase='"appu"'>appu's code is running</p>
+    <p *ngSwitchCase='"paddy"'>paddy's code is running</p>
+    <p *ngSwitchDefault>default code is running</p>
+</div>

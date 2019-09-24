@@ -1,0 +1,9 @@
+<h1 class="text-center">what's happening ???</h1>
+<div class="container mt-5">
+        <div class="card card-body col-md-3 float-left" heigth="100px" *ngFor='let n of news'>
+        <img src="{{n.urlToImage}}" alt="" class="card-img-top float-left">
+        <h6>{{n.title}}</h6>
+        <!-- <p>{{n.description}}</p> -->
+        <a href="{{n.url}}">click here for more</a>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<h1 class="text-center">places to visit</h1>
+<div class="container mt-5">
+    <div class="col-md-3 float-left">
+        <div class="card card-body" *ngFor='let p of places'>
+            <img src="{{p.photo}}" class="card-img-top" (click)="select(p)">
+            <h6 class="card-tile">{{p.name}}</h6>
+        </div>
+    </div>
+</div>
+<app-placec [placedata]='placedetail'></app-placec> 
