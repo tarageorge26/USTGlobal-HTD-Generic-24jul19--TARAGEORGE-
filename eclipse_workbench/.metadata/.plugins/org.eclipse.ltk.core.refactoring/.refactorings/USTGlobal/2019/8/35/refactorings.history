@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Dog.java&apos; to &apos;USTGlobal/src/dev.com.objectmethods&apos;&#x0D;&#x0A;- Original project: &apos;USTGlobal&apos;&#x0D;&#x0A;- Destination element: &apos;USTGlobal/src/dev.com.objectmethods&apos;&#x0D;&#x0A;- Original element: &apos;dev.com.encapsulation.Dog.java&apos;" description="Copy compilation unit" destination="/src&lt;dev.com.objectmethods" element1="/src&lt;dev.com.encapsulation{Dog.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1567064436179" units="1" version="1.0"/>
+</session>

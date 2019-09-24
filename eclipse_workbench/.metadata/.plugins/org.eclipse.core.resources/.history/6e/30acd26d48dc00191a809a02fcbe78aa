@@ -1,0 +1,10 @@
+package Gmail_project;
+
+public interface Gmail_Operation {
+	
+	public void login();
+	public void register(String key);
+	public void compose();
+	public void showInbox(int uid);
+
+}

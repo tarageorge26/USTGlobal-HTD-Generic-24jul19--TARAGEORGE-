@@ -1,0 +1,53 @@
+package Gmail_project;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Implementation_class implements Gmail_Operation {
+	
+	HashMap<String,Account> hm = new HashMap<String,Account>();
+	Scanner s1 = new Scanner(System.in);
+	int i=0;
+	
+
+	@Override
+	public void login() {
+
+		System.out.println("Enter email...");
+		String email=s1.nextLine();
+		System.out.println("enter password...");
+		String pass=s1.nextLine();
+		Account a =hm.get(email);
+		
+		
+	}
+
+	@Override
+	public void register() {
+		i=i+1;
+		Account a = new Account();
+		a.setUserId(i);
+		System.out.println("Enter Username...");
+		a.setUserName(s1.nextLine());
+		System.out.println("Enter email...");
+		a.setEmail(s1.nextLine());
+		System.out.println("enter password...");
+		a.setPassword(s1.nextLine());
+		
+		
+		
+	}
+
+	@Override
+	public void compose() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void showInbox(int uid) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,18 @@
+package dev.com.abstraction;
+
+public class AbstractionChild extends AbstractChild {
+	
+	@Override
+	void showDetails() {
+		System.out.println("i am extending from AbstractChild");
+		System.out.println("i am displaying student details");
+	}
+
+	public static void main(String[] args) {
+		
+		AbstractionChild ap = new AbstractionChild();
+		ap.showDetails();
+
+	}
+
+}

@@ -1,0 +1,14 @@
+package dev.com.abstraction;
+
+public abstract class AbstractChild  extends AbstractParent{
+	
+	
+	AbstractChild(){
+		System.out.println("i am AbstractChild constructor");
+	}
+	//abstract void studentDetails();
+	
+	
+
+
+}

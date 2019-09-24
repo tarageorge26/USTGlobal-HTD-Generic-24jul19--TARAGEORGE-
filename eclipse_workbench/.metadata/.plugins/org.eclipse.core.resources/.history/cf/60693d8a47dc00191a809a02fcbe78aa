@@ -1,0 +1,63 @@
+package Gmail_project;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Implementation_class implements Gmail_Operation {
+	
+	HashMap<String,Account> hm = new HashMap<String,Account>();
+	HashMap<String,Message_box> hm1 = new HashMap<String,Message_box>();
+	Scanner s1 = new Scanner(System.in);
+	Account a = new Account();
+	Message_box = new Message_box();
+	int i=0;
+	
+	
+
+	@Override
+	public void login() {
+        
+		System.out.println("Enter email...");
+		String email=s1.nextLine();
+		System.out.println("enter password...");
+		String pass=s1.nextLine();
+		Account a =hm.get(email);
+		
+		
+	}
+
+	@Override
+	public void register(String key) {
+		i=i+1;
+		a.setUserId(i);
+		System.out.println("Enter Username...");
+		a.setUserName(s1.nextLine());
+		System.out.println("Enter email...");
+		a.setEmail(s1.nextLine());
+		System.out.println("enter password...");
+		a.setPassword(s1.nextLine());
+		hm.put(key,a);
+		System.out.println("registered successfully");		
+	}
+
+	@Override
+	public void compose() {
+		
+		System.out.println("enter your userId(key)");
+		boolean b =hm.containsKey(s1.nextLine());
+		if(b) {
+			System.out.println("enter to mail address");
+			String toMail= s1.nextLine();
+			System.out.println("type the message you want...");
+			String text = s1.nextLine();
+		}
+		
+	}
+
+	@Override
+	public void showInbox(int uid) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

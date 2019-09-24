@@ -1,0 +1,16 @@
+package Gmail_project;
+
+import java.util.Scanner;
+
+public class JavaGmailMainClass {
+
+	public static void main(String[] args) {
+		
+		
+		Scanner s = new Scanner(System.in);
+		System.out.println("Hai welcome to Gmail");
+		System.out.println("enter your choice\n 1.Login\n 2.Register");
+
+	}
+
+}

@@ -1,0 +1,10 @@
+package Gmail_project;
+
+public class Account {
+	
+	private int UserId;
+	private String UserName;
+	private String Password;
+	private String Email;
+
+}

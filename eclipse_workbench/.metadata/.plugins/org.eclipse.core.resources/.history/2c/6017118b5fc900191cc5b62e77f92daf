@@ -1,0 +1,9 @@
+package dev.com.abstraction;
+
+public abstract class AbstractExample {
+
+	abstract void display();
+	public void show() {
+		System.out.println("concrete method of abstract class");
+	}
+}

@@ -1,0 +1,5 @@
+package dev.com.abstraction;
+
+public class AbstractParent {
+
+}

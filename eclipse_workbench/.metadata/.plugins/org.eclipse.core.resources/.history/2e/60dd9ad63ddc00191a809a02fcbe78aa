@@ -1,0 +1,10 @@
+package Gmail_project;
+
+public class JavaGmailMainClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
