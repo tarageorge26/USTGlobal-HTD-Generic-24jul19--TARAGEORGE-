@@ -1,0 +1,22 @@
+<table class=" table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>website</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let u of users'>
+            <td>{{u.id}}</td>
+            <td>{{u.name}}</td>
+            <td>{{u.username}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.website}}</td>
+            <td>{{u.address.street+","+u.address.city}}</td>
+        </tr>
+    </tbody>
+</table>

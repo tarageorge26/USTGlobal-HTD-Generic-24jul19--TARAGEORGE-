@@ -1,0 +1,15 @@
+<div class="container">
+<div class="card card-body col-md-6 offset-md-3 mt-5">
+    <h3 class="text-center">Add Task</h3> 
+     <input type="text" class="form-control" [(ngModel)]='taskName' placeholder="enter task name...."><br>
+     <button type="submit" class="btn btn-success" (click)='addName(taskName)'>add task</button><br>
+ </div>
+</div>
+
+<div class="container"><br>
+    <div class="card card-body col-md-6 offset-md-3 mt-5">
+        <ul *ngFor='let t1 of arr'>
+            <li>{{t1}} <button class="btn btn-danger"(click)='delete(t1)'>delete</button> </li>
+        </ul>
+    </div>
+</div>
